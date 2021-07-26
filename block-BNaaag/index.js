@@ -5,13 +5,14 @@
 // var cpus = os.cpus().length;
 // console.log(filePath, freem, cpus);
 
-var fs = require('fs');
-fs.readFile('./file.md', (err, content) => {
-  console.log(err, content.toString());
+var { readFile, readFileSync } = require('fs');
+readFile('./file.md', (err, content) => {
+  console.log(content.toString());
 });
 
-var sync = require('./sync');
-console.log(sync.sum(7, 8));
+var result = readFileSync(`./file.md`, `utf8`);
+
+console.log(result);
 
 // Buffer
 
