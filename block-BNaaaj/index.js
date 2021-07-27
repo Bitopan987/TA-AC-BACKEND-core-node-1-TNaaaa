@@ -4,7 +4,7 @@ var { readFile, readFileSync, unlink } = require('fs');
 
 var os = require('os');
 
-var frem = os.freemem();+
+var frem = os.freemem();
 var cpus = os.cpus().length;
 var version = os.version();
 var uptime = os.uptime();
