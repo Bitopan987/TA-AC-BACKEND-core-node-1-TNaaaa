@@ -2,6 +2,7 @@ var http = require('http');
 var server = http.createServer(handleRequest);
 
 function handleRequest(req, res) {
+  console.log(req.method);
   //   res.statusCode = 201;
   //   res.setHeader(`Content-type`, `text/plain`);
   res.writeHead(201, { 'Content-type': 'text/plain' });
