@@ -4,10 +4,26 @@ var fs = require('fs');
 var server = http.createServer(handleRequest);
 
 function handleRequest(req, res) {
+  if (req.url.split('.').pop() === 'css') {
+    res.setHeader('Content-Type', 'text/css');
+    fs.readFile('./assets/stylesheets/' + req.url, (err, content) => {
+      if (err) return console.log(err);
+      res.end(content);
+    });
+  }
+  if (req.url.split('.').pop() === '.jpg') {
+    res.setHeader('Content-Type', 'image/jpg');
+    fs.readFile('./assets/stylesheets/' + req.url, (err, content) => {
+      if (err) return console.log(err);
+      res.end(content);
+    });
+  }
   if (req.method === 'GET' && req.url === '/') {
-    console.log(req.method);
-    res.setHeader('Content-type', 'text/html');
-    fs.createWriteStream('./about.html').pipe(res);
+    res.setHeader('Content-Type', 'image.jpg');
+    fs.readFile('./index.html', (err, content) => {
+      if (err) return console.log(err);
+      res.end(content);
+    });
   }
 }
 
